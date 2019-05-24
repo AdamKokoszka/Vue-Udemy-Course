@@ -1,29 +1,16 @@
-# vue-cmp
+# Vue-Udemy-Course
 
-## Project setup
-```
-yarn install
-```
+### What I've already done:
+* Using VueJS to Interact with the DOM
+* Using Conditionals and Rendering Lists
+* First Course Project - The Monster Slayer
+* Understanding the VueJS Instance
+* Moving to a "Real" Development Workflow with Webpack and Vue CLI
+* An Introduction to Components
+* Communicating between Components
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+The course I am working on: [Vue Js 2 - Kompletny przewodnik (w tym Vue Router i Vuex)](https://www.udemy.com/vuejs-2-the-complete-guide/)
 
-### Compiles and minifies for production
-```
-yarn run build
-```
 
-### Run your tests
-```
-yarn run test
-```
 
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ 
