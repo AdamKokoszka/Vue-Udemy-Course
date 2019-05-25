@@ -2,26 +2,54 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <app-quote>
-          <h2 slot="header">Some Header</h2>
-          <p>Any text in paragraph</p>
-          <p>Hello World</p>
-        </app-quote>
+        <br>
+        <button @click="cmp = 'appBlue'" class="btn btn-primary">Load Blue Template</button>
+        <button @click="cmp = 'appGreen'" class="btn btn-success">Load Green Template</button>
+        <button @click="cmp = 'appRed'" class="btn btn-danger">Load Red Template</button>
+        <hr>
+        <component :is="cmp">
+          <h3>Hello {{ name }}</h3>
+          <p>Some text</p>
+        </component>
+<!--
+        <app-blue>
+          <h3>Hello {{ name }}</h3>
+          <p>Some text</p>
+        </app-blue>
+        <app-green>
+          <h3>Hello {{ name }}</h3>
+          <p>Some text</p>
+        </app-green>
+        <app-red>
+          <h3>Hello {{ name }}</h3>
+          <p>Some text</p>
+        </app-red>
+-->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Quote from "./components/Quote.vue"
+  import Blue from './components/Blue.vue';
+  import Green from './components/Green.vue';
+  import Red from './components/Red.vue';
+
   export default {
+    data: () => {
+      return {
+        name: "Adam",
+        cmp: "appBlue"
+      };
+    },
     components: {
-      appQuote: Quote
+      appBlue: Blue,
+      appGreen: Green,
+      appRed: Red
     }
   }
 
 </script>
 
 <style>
-
 </style>
