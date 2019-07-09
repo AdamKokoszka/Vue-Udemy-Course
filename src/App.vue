@@ -9,6 +9,7 @@
         <button @click="ValueUp">Click!</button>
       </div>
     </div>
+    <quote-items></quote-items>
     <quote-area @quoteAdded="newQuote"></quote-area>
     <p>{{ newQuote }}</p>
     <quote-footer></quote-footer>
@@ -17,6 +18,7 @@
 
 <script>
   import QuoteArea from './components/QuoteArea'
+  import QuoteItems from './components/QuoteItems'
   import QuoteFooter from './components/QuoteFooter'
   export default {
     data: () => {
@@ -40,6 +42,7 @@
     },
     components: {
       QuoteArea,
+      QuoteItems,
       QuoteFooter
     }
   }
