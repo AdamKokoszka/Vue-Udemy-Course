@@ -8,6 +8,8 @@
 * Moving to a "Real" Development Workflow with Webpack and Vue CLI
 * An Introduction to Components
 * Communicating between Components
+* Advanced Component Usage
+* Second Course Project - Wonderful Quotes
 
 The course I am working on: [Vue Js 2 - Kompletny przewodnik (w tym Vue Router i Vuex)](https://www.udemy.com/vuejs-2-the-complete-guide/)
 
