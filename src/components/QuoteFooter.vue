@@ -29,6 +29,7 @@
     color: white;
     border-radius: 5px;
     padding: 2px;
+    margin-top: 30px;
     
     p{
     text-align: center;

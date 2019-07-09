@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-6 offset-3">
       <h1>Quote</h1>
-      <textarea name="" id="" cols="30" rows="5" v-model="newquote"></textarea>
-      <button @click="AddQuote">Add Quote!</button>
+      <textarea name="" id="" cols="30" rows="5" v-model="quote" placeholder="Some text"></textarea>
+      <button @click.prevent="AddQuote">Add Quote!</button>
     </div>
   </div>
 </template>
@@ -11,12 +11,14 @@
   export default {
     data: () => {
       return {
-        newquote: ''
+        quote: [
+          ''
+        ]
       };
     },
     methods: {
       AddQuote(){
-        this.$emit('quoteAdded', this.newquote);
+        this.$emit('quoteAdded', this.quote);
         this.quote = '';
       }
     }
