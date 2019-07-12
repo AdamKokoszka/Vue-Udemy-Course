@@ -9,7 +9,7 @@
           <!-- Mail -->
           <!-- Password -->
           <!-- Store Data? Yes/No -->
-          <FullName v-model="fullName"></FullName>
+          <full-name v-model="fullName"></full-name>
           <div class="form-group">
             <label>Mail</label>
             <input type="text" class="form-control" v-model="email">
@@ -59,6 +59,7 @@
 
 <script>
   import FullName from './FullName.vue'
+  
   export default {
     data(){
       return{
@@ -70,7 +71,7 @@
       }
     },
     components: {
-      FullName
+      FullName: FullName
     }
   }
 
