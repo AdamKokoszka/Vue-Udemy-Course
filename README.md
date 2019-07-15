@@ -14,6 +14,7 @@
 * Using and Creating Directives
 * Improving your App with Filters and Mixins
 * Adding Animations and Transitions
+* Connecting to Servers via Http - Using vue-resource
 
 The course I am working on: [Vue Js 2 - Kompletny przewodnik (w tym Vue Router i Vuex)](https://www.udemy.com/vuejs-2-the-complete-guide/)
 
