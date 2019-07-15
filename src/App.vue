@@ -2,81 +2,95 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-        <h1 class="text-center">The Super Quiz</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-        <transition name="flip" mode="out-in">
-          <component :is="mode" @answered="answered($event)" @confirmed="mode = 'question'"></component>
-        </transition>
+        <h1>Http</h1>
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control" v-model="user.username">
+        </div>
+        <div class="form-group">
+          <label>Mail</label>
+          <input type="text" class="form-control" v-model="user.mail">
+        </div>
+        <button class="btn btn-primary" @click="submit">Submit</button>
+        <hr>
+        <input type="text" class="form-control" v-model="node">
+        <br><br>
+        <button class="btn btn-primary" @click="fetchData">Get Data</button>
+        <br>
+        <br>
+        <ul class="list-group">
+          <li class="list-group-item" v-for="u in users"> {{ u.username }} - {{ u.mail }}</li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Question from './components/Question.vue';
-  import Answer from './components/Answer.vue';
   export default {
     data() {
       return {
-        mode: 'question',
+        user: {
+          username: '',
+          mail: ''
+        },
+        users: [],
+        resource: {},
+        node: 'data'
       }
     },
     methods: {
-      answered(isCorrect) {
-        if (isCorrect) {
-          this.mode = 'answer';
-        } else {
-          this.mode = 'question';
-          alert('Wrong, try again!');
-        }
+      submit() {
+        //        this.$http.post('data.json', this.user)
+        //        .then(response => {
+        //          console.log(response);
+        //        }, error => {
+        //          console.log(error);
+        //        });
+        //        this.resource.save({}, this.user);
+        this.resource.saveAlt(this.user);
+      },
+      fetchData() {
+//        this.$http.get('data.json')
+//          .then(response => {
+//            return response.json();
+//          })
+//          .then(data => {
+//            const resultArray = [];
+//            for (let key in data) {
+//              resultArray.push(data[key]);
+//            }
+//            this.users = resultArray;
+//          });
+        this.resource.getData({node: this.node})
+        .then(response => {
+            return response.json();
+            })
+            .then(data => {
+            const resultArray = [];
+            for (let key in data) {
+            resultArray.push(data[key]);
+            }
+            this.users = resultArray;
+            });
       }
     },
-    components: {
-      Question,
-      Answer
+    created() {
+      const customActions = {
+        saveAlt: {
+          method: 'POST',
+          url: 'alternative.json'
+        },
+        getData: {
+          method: 'GET'
+        }
+      }
+      this.resource = this.$resource('{node}.json', {}, customActions);
     }
   }
 
 </script>
 
 <style>
-  .flip-enter {
-    /*    transform: rotateY(0deg);*/
-  }
-
-  .flip-enter-active {
-    animation: flip-in 0.5s ease-out forwards;
-  }
-
-  .flip-leave {
-    
-  }
-
-  .flip-leave-active {
-    animation: flip-out 0.5s ease-out forwards;
-  }
-
-  @keyframes flip-out {
-    from {
-      transform: rotateY(0deg);
-    }
-
-    to {
-      transform: rotateY(90deg);
-    }
-  }
-
-  @keyframes flip-in {
-    from {
-      transform: rotateY(90deg);
-    }
-
-    to {
-      transform: rotateY(0deg);
-    }
-  }
 
 </style>
