@@ -2,7 +2,7 @@
    <div>
     <h1>The User Page</h1>
      <hr>
-     <p>Loaded ID: {{ id }}</p>
+     <p>Loaded ID: </p>
      <button class="btn btn-primary" @click="navToHome">Go to Home</button>
      <hr>
      <router-view></router-view>
@@ -14,7 +14,7 @@
 export default{
   methods: {
     navToHome(){
-      this.$router.push('/');
+      this.$router.push({name: 'home'});
     }
   }
 }
