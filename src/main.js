@@ -1,32 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import VueRouter from 'vue-router'
-import { routes } from './routes'
-
-Vue.use(VueRouter);
-
-const router = new VueRouter({ 
-  routes,
-  mode: 'history',
-  scrollBehavior(to, from, savePosition){
-    if(savePosition){
-      return savePosition;
-    }
-    if(to.hash){
-      return { selector: to.hash };
-    }
-    return {x:0, y:700}
-  }
-});
-
-router.beforeEach((to, from, next) => {
-  console.log('global beforeEach');
-  next();
-});
+import { store } from './store/store.js'
 
 new Vue({
   el: '#app',
-  router,
+  store,
   render: h => h(App)
 })
