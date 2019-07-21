@@ -1,7 +1,7 @@
 <template>
   <div class="col-4">
     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-      <div class="card-header">NAME <small>(price: PRICE)</small></div>
+      <div class="card-header">{{stock.name}} <small>(price: {{stock.price}})</small></div>
       <div class="card-body">
         <div class="row">
           <div class="col-9">
@@ -15,3 +15,9 @@
     </div>
   </div>
 </template>
+<script>
+export default{
+  props:['stock']
+  
+}
+</script>
