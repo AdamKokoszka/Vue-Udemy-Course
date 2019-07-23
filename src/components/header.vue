@@ -21,8 +21,8 @@
                 Save & Load
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Save Data</a>
-                <a class="dropdown-item" href="#">Load Data</a>
+                <a class="dropdown-item" href="#" @click="saveData">Save Data</a>
+                <a class="dropdown-item" href="#" @click="loadData">Load Data</a>
               </div>
             </li>
             <li class="nav-item">
@@ -43,16 +43,23 @@
       }
     },
     methods: {
-      ...mapMutations([
-        'endDay'
-      ])
-    }
-    /* methods: {
-        reducePrice: function(amount){
-            // this.$store.commit('reducePrice', amount);
-            this.$store.dispatch('reducePrice', amount);
+      endDay() {
+        this.$store.commit('endDay');
+      },
+      saveData(){
+        const data = {
+          funds: this.$store.state.funds,
+          stocks: this.$store.state.stocks
         }
-    },*/
+        this.$http.put('data.json', data);
+      },
+      loadData(){
+        this.$store.commit('loadData');
+      }
+//      ...mapMutations([
+//        'endDay'
+//      ]),
+    }
   }
 
 </script>

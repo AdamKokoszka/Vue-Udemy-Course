@@ -6,7 +6,6 @@ Vue.use(Vuex);
 export const store =  new Vuex.Store({
   state: {
     funds: 10000,
-    expense: 0,
     stocks:[
       {id: 1, name: 'BMW', price: 110, quantity: 0},
       {id: 2, name: 'Google', price: 200, quantity: 0},
@@ -32,6 +31,16 @@ export const store =  new Vuex.Store({
       const stateRecord = state.stocks.find(element => element.id == ordersell.sellId);
       state.funds += stateRecord.price * ordersell.sellQuantity;
       stateRecord.quantity -= ordersell.sellQuantity;
+    },
+    loadData: state => {
+      Vue.http.get('data.json')
+      .then(response => response.json())
+      .then(data => {
+        if(data){
+          state.stocks = data.stocks
+          state.funds = data.funds
+        }
+      })
     }
   }
 });
