@@ -14,7 +14,7 @@
           </ul>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">End Day</a>
+              <a class="nav-link" href="#" @click="endDay">End Day</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -35,13 +35,26 @@
   </div>
 </template>
 <script>
+  import {mapMutations} from 'vuex';
   export default {
     computed: {
       funds() {
         return this.$store.state.funds;
       }
+    },
+    methods: {
+      ...mapMutations([
+        'endDay'
+      ])
     }
+    /* methods: {
+        reducePrice: function(amount){
+            // this.$store.commit('reducePrice', amount);
+            this.$store.dispatch('reducePrice', amount);
+        }
+    },*/
   }
+
 </script>
 <style lang="scss">
   nav {
