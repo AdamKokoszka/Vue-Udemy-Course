@@ -1,16 +1,18 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import VueResource from 'vue-resource'
+//import VueResource from 'vue-resource'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
 import { store } from './store/store.js'
 import { routes } from './routes.js'
+import axios from 'axios'
 
 Vue.use(VueRouter);
-Vue.use(VueResource);
+axios.defaults.baseURL = 'https://vue-stock-trader-01.firebaseio.com'
 
-Vue.http.options.root = 'https://vue-stock-trader-01.firebaseio.com/';
+//Vue.use(VueResource);
+//Vue.http.options.root = 'https://vue-stock-trader-01.firebaseio.com/';
 
 const router = new VueRouter({
   mode: 'history',

@@ -36,6 +36,7 @@
 </template>
 <script>
   import {mapMutations} from 'vuex';
+  import axios from 'axios';
   export default {
     computed: {
       funds() {
@@ -51,7 +52,10 @@
           funds: this.$store.state.funds,
           stocks: this.$store.state.stocks
         }
-        this.$http.put('data.json', data);
+//        this.$http.put('data.json', data);
+        axios.put('/data.json', data)
+          .catch(error => console.log(error))
+        
       },
       loadData(){
         this.$store.commit('loadData');

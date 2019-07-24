@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from 'axios';
 
 Vue.use(Vuex);
 
@@ -33,14 +34,20 @@ export const store =  new Vuex.Store({
       stateRecord.quantity -= ordersell.sellQuantity;
     },
     loadData: state => {
-      Vue.http.get('data.json')
+     /* Vue.http.get('data.json')
       .then(response => response.json())
       .then(data => {
         if(data){
           state.stocks = data.stocks
           state.funds = data.funds
         }
-      })
+      })*/
+      axios.get('/data.json')
+        .then(res => {
+          state.stocks = res.data.stocks
+          state.funds = res.data.funds
+        })
+        .catch(error => console.log(error))
     }
   }
 });
