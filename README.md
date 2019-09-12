@@ -18,6 +18,8 @@
 * Routing in a VueJS Application
 * Better State Management with Vuex
 
+###The course has been completed. Individual chapters and work on them can be seen on individual branches.
+
 The course I am working on: [Vue Js 2 - Kompletny przewodnik (w tym Vue Router i Vuex)](https://www.udemy.com/vuejs-2-the-complete-guide/)
 
 
